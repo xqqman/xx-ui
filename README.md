@@ -513,6 +513,34 @@ XUI_BIN_FOLDER="bin" XUI_DB_FOLDER="/etc/x-ui" go build main.go
 ```
 
 </details>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取访问者的 IP 地址</title>
+    <!-- 引入 jQuery 库，用于简化 AJAX 请求 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // 使用 jQuery 发起 AJAX 请求获取访问者的 IPv6 地址
+        $.getJSON("https://api64.ipify.org?format=json", function(data) {
+            // 将获取到的 IPv6 地址显示在页面上
+            $("#ipv6").text(data.ip);
+        });
+
+        // 使用 jQuery 发起 AJAX 请求获取访问者的 IPv4 地址
+        $.getJSON("https://api.ipify.org?format=json", function(data) {
+            // 将获取到的 IPv4 地址显示在页面上
+            $("#ipv4").text(data.ip);
+        });
+    });
+    </script>
+</head>
+<body>
+    <h1>访问者的 IP 地址</h1>
+    <p>IPv4 地址: <span id="ipv4">加载中...</span></p>
+    <p>IPv6 地址: <span id="ipv6">加载中...</span></p>
+    <body>
+
 
 
 ## 致谢
